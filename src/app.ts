@@ -3,14 +3,13 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-
 const app: Application = express();
 
 app.set('port', process.env.PORT || 8085);
 
 // Middlewares
 if(!process.env.PRODUCTIO_MODE) {
-    app.use(morgan('dev'));
+    // app.use(morgan('dev'));
 }
 
 app.use(cors());
