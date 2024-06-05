@@ -3,6 +3,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
+// Routes
+import breedRoutes from './routes/breed';
+
+
 const app: Application = express();
 
 app.set('port', process.env.PORT || 8085);
@@ -19,6 +23,7 @@ app.use(bodyParser.json());
 
 
 // routes
+app.use('/api/breed', breedRoutes);
 
 
 
