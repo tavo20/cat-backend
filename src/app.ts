@@ -5,9 +5,10 @@ import bodyParser from 'body-parser';
 
 // Routes
 import breedRoutes from './routes/breed';
-
+import authRoutes from './routes/auth';
 
 const app: Application = express();
+
 
 app.set('port', process.env.PORT || 8085);
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/api/breed', breedRoutes);
+app.use('/api/auth', authRoutes);
 
 
 

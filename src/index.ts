@@ -6,7 +6,7 @@ import app from './app';
 import { Request, Response } from 'express';
 
 // Nos conectamos a a DB
-// import './database';
+import './config/db';
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World');

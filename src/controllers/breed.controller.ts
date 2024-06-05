@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-// const breedService = require('../services/breedService');
 import { getAllBreeds as getAllBreedsService, getBreedById as getBreedByIdService, getBySearch as getBySearchService, getImagesById as getImagesByIdService } from '../services/breedService';
 
 export const getAllBreeds = async (req: Request, res: Response) => {
