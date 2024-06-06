@@ -72,12 +72,13 @@ export const getBySearch = async (search: string) => {
     }
 }
 
-export const getImagesById = async (image_id: string) => {
+export const getImagesById = async (breed_id: string) => {
     try {
         const API_CAT_URL = process.env.API_CAT_URL;
         const KEY_CAT_API_SECRET = process.env.KEY_CAT_API_SECRET;
+        const url = `${API_CAT_URL}v1/images/search?breed_ids=${breed_id}`
 
-        const response = await axios.get(`${API_CAT_URL}v1/images/${image_id}`, {
+        const response = await axios.get(url, {
             headers: {
                 'x-api-key': KEY_CAT_API_SECRET
             }

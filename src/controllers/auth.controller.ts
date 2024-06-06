@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import User from '../models/UserM';
-const UserService = require('../services/userService');
+import UserService from '../services/userService';
+// const UserService = require('../services/userService');
 
 export const login = async (req: any, res: Response) => {
     try {
-
         const { email, password } = req.body;
-        const { user, token } = await UserService.login(email, password);
+        let { user, token } = await UserService.login({ email, password });
 
+        delete user.password;
         res.json({ user, token, message: 'User logged in successfully', success: true});
 
       } catch (error: any) {
@@ -18,8 +18,14 @@ export const login = async (req: any, res: Response) => {
 export const register = async (req: any, res: Response) => {
     try {
 
-        const user = await UserService.register(req.body);
-        res.status(201).json({ message: 'User registered successfully', user, success: true});
+        let user = await UserService.register(req.body);
+        const userObject = {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+        
+        }
+        res.status(201).json({ message: 'User registered successfully', user: userObject, success: true});
 
     } catch (error: any) {
         res.status(500).json({ error: error.message, success: false});

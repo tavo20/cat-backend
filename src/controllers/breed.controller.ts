@@ -3,7 +3,6 @@ import { getAllBreeds as getAllBreedsService, getBreedById as getBreedByIdServic
 
 export const getAllBreeds = async (req: Request, res: Response) => {
   try {
-    console.log('getAllBreeds');
     const breeds = await getAllBreedsService();
 
     res.json(breeds);

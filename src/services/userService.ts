@@ -20,7 +20,7 @@ class UserService {
             expiresIn: '24h',
         });
 
-
+        
         return { token, user: user.toObject() };
     }
 
@@ -36,3 +36,5 @@ class UserService {
         return newUser;
     }
 }
+
+export default new UserService();
